@@ -6,11 +6,24 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Rock Paper Scissors!</title>
 		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="sanitize.css" />
 	</head>
 	<body>
 		<div class="game">
 			<h1>Rock Paper Scissors!!!</h1>
-			<button onclick="game()">Start Game</button>
+			<div class="gamePick">
+				<div class="pick">
+					<input type="text" id="player" placeholder="Player Choice" />
+				</div>
+				<div class="pick">
+					<input type="text" id="comp" placeholder="Computer Choice" />
+				</div>
+			</div>
+			<button onclick="singleRound()">Start Game</button>
+
+			<div class="results">
+				<p id="gameRes"></p>
+			</div>
 		</div>
 	</body>
 	<script src="app.js"></script>

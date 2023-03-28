@@ -1,19 +1,62 @@
+div {
+}
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
 .game {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin: 0;
+	background-color: rgb(154, 206, 227);
 }
 button {
 	font-size: large;
-	padding: 10px;
+	padding: 5px;
 	border: 2px solid black;
 	border-radius: 30px;
-	background-color: blue;
-	color: gold;
+	background-color: lightskyblue;
+	color: #962a2a;
 	transition: all 0.5s ease;
 }
 button:hover {
 	padding: 12px;
 	transition: all 0.5s ease;
+}
+.pick {
+	display: flex;
+	height: 40px;
+	width: 115px;
+	border: 2px solid black;
+	border-radius: 15px;
+	justify-content: center;
+	gap: 100px;
+}
+.gamePick {
+	display: flex;
+	margin: 25px;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 100px;
+}
+input {
+	width: 100%;
+	text-align: center;
+	color: #962a2a;
+}
+input::placeholder {
+	text-size-adjust: large;
+	text-align: center;
+	color: #962a2a;
+}
+.results {
+	display: flex;
+	margin-top: 25px;
+	height: 30px;
+	width: 115px;
+	border: solid black 2px;
+	border-radius: 15px;
+	justify-content: center;
 }

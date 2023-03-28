@@ -1,54 +1,56 @@
 const choices = ['rock', 'paper', 'scissors'];
 const winners = [];
+
 function getComputerChoice() {
-	return choices[Math.floor(Math.random() * choices.length)];
-	console.log(com);
+	let compPick = choices[Math.floor(Math.random() * choices.length)];
+	const compout = document.getElementById('comp');
+	compout.value = compPick;
+	return compPick;
 }
 
 function getPlayerChoice() {
-	let input = prompt('Type Rock, Paper, or Scissors');
-	while (input == null) {
-		input = prompt('Type Rock, Paper, or Scissors');
+	let playinput = document.getElementById('player').value;
+	while (playinput == null) {
+		let placeHolder = document.querySelector(input);
+		placeHolder.style.placeholder = 'Type Something';
 	}
-	input = input.toLowerCase();
+	input = playinput.toLowerCase();
 	let check = validateChoice(input);
 	while (check == false) {
-		input = prompt('Type Rock, Paper, or Scissors');
-		while (input == null) {
-			input = prompt('Type Rock, Paper, or Scissors');
-		}
-		input = input.toLowerCase();
-		check = validateChoice(input);
+		placeHolder.placeholder = 'Type Something';
 	}
+	input = input.toLowerCase();
+	check = validateChoice(input);
 	return input;
 }
 function validateChoice(choice) {
 	return choices.includes(choice);
 }
-function game() {
-	for (let i = 0; i < 5; i++) {
-		singleRound();
-	}
-	logWins();
-}
+// function game() {
+// 	for (let i = 0; i < 5; i++) {
+// 		singleRound();
+// 	}
+// 	logWins();
+// }
 function singleRound() {
 	const playerChoice = getPlayerChoice();
 	const compChoice = getComputerChoice();
 	const winner = checkWinner(playerChoice, compChoice);
-	winners.push(winner);
+	console.log(winner);
+	return winner;
 }
 
 function checkWinner(choiceP, choiceC) {
 	if (choiceP === choiceC) {
-		return 'Tie';
+		document.getElementById('gameRes').innerHTML = 'Tie';
 	} else if (
 		(choiceP === 'rock' && choiceC === 'scissors') ||
 		(choiceP === 'scissors' && choiceC === 'paper') ||
 		(choiceP === 'paper' && choiceC === 'rock')
 	) {
-		return 'Player';
+		document.getElementById('gameRes').innerHTML = 'Player';
 	} else {
-		return 'Computer';
+		document.getElementById('gameRes').innerHTML = 'Computer';
 	}
 }
 function logWins() {
